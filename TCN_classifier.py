@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from os.path import join
 import scipy.io as sio
-# scipy.io.loadmat()
 rootdir = r"/Users/binxuwang/Library/CloudStorage/OneDrive-HarvardUniversity/SabatiniShijiaLickingClassifier"
 neural_mat = sio.loadmat(join(rootdir, "allLicksNeural 1.mat"))
 lick_mat = sio.loadmat(join(rootdir, "lastLickIdentity 1.mat"))
