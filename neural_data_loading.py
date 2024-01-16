@@ -1,9 +1,18 @@
 import scipy.io as sio
 from os.path import join
 import os
-rootdir = r"/Users/binxuwang/Library/CloudStorage/OneDrive-HarvardUniversity/SabatiniShijiaLickingClassifier/Data"
-os.listdir(join(rootdir))
+import platform 
+# if on osx
+if platform.system() == 'Darwin':
+    rootdir = r"/Users/binxuwang/Library/CloudStorage/OneDrive-HarvardUniversity/SabatiniShijiaLickingClassifier/Data"
+elif platform.system() == 'Linux':
+    rootdir = r"/n/holylabs/LABS/kempner_fellows/Users/binxuwang/Projects/SabatiniShijiaLickingClassifier/Data"
+elif platform.system() == 'Windows':
+    raise NotImplementedError("Windows is not supported yet")
+
 def load_data():
+    print("Loading data from", rootdir)
+    print(os.listdir(rootdir))
     neural_mat = sio.loadmat(join(rootdir, "allLicksNeural_5msBin_41Bins_20_1_20.mat"))
     lastlicksId_mat = sio.loadmat(join(rootdir, 'lastLickIdentity_5msBin_41Bins_20_1_20.mat'))
     firstboutId_mat = sio.loadmat(join(rootdir, 'firstLickBoutIdentity_5msBin_41Bins_20_1_20.mat'))
