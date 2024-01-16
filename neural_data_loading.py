@@ -4,18 +4,20 @@ import os
 import platform 
 # if on osx
 if platform.system() == 'Darwin':
-    rootdir = r"/Users/binxuwang/Library/CloudStorage/OneDrive-HarvardUniversity/SabatiniShijiaLickingClassifier/Data"
+    rootdir = r"/Users/binxuwang/Library/CloudStorage/OneDrive-HarvardUniversity/SabatiniShijiaLickingClassifier"
+    datadir = join(rootdir, "Data")
 elif platform.system() == 'Linux':
-    rootdir = r"/n/holylabs/LABS/kempner_fellows/Users/binxuwang/Projects/SabatiniShijiaLickingClassifier/Data"
+    rootdir = r"/n/holylabs/LABS/kempner_fellows/Users/binxuwang/Projects/SabatiniShijiaLickingClassifier"
+    datadir = join(rootdir, "Data")
 elif platform.system() == 'Windows':
     raise NotImplementedError("Windows is not supported yet")
 
 def load_data():
-    print("Loading data from", rootdir)
-    print(os.listdir(rootdir))
-    neural_mat = sio.loadmat(join(rootdir, "allLicksNeural_5msBin_41Bins_20_1_20.mat"))
-    lastlicksId_mat = sio.loadmat(join(rootdir, 'lastLickIdentity_5msBin_41Bins_20_1_20.mat'))
-    firstboutId_mat = sio.loadmat(join(rootdir, 'firstLickBoutIdentity_5msBin_41Bins_20_1_20.mat'))
+    print("Loading data from", datadir)
+    print(os.listdir(datadir))
+    neural_mat = sio.loadmat(join(datadir, "allLicksNeural_5msBin_41Bins_20_1_20.mat"))
+    lastlicksId_mat = sio.loadmat(join(datadir, 'lastLickIdentity_5msBin_41Bins_20_1_20.mat'))
+    firstboutId_mat = sio.loadmat(join(datadir, 'firstLickBoutIdentity_5msBin_41Bins_20_1_20.mat'))
     neural_mat = neural_mat['allLicksNeural']
     lastlicksId_mat = lastlicksId_mat['lastLickIdentity']
     firstboutId_mat = firstboutId_mat['firstLickBoutIdentity']
