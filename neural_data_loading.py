@@ -5,14 +5,14 @@ import platform
 # if on osx
 if platform.system() == 'Darwin':
     rootdir = r"/Users/binxuwang/Library/CloudStorage/OneDrive-HarvardUniversity/SabatiniShijiaLickingClassifier"
-    datadir = join(rootdir, "Data")
+    dataroot = join(rootdir, "Data")
 elif platform.system() == 'Linux':
     rootdir = r"/n/holylabs/LABS/kempner_fellows/Users/binxuwang/Projects/SabatiniShijiaLickingClassifier"
-    datadir = join(rootdir, "Data")
+    dataroot = join(rootdir, "Data")
 elif platform.system() == 'Windows':
     raise NotImplementedError("Windows is not supported yet")
 
-def load_data():
+def load_data(datadir):
     print("Loading data from", datadir)
     print(os.listdir(datadir))
     neural_mat = sio.loadmat(join(datadir, "allLicksNeural_5msBin_41Bins_20_1_20.mat"))
